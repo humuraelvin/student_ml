@@ -1,0 +1,100 @@
+{
+  "info": {
+    "name": "Student Performance ML API",
+    "description": "Collection for Django ML Prediction API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Predict Performance",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"hours_studied\": 6, \"previous_scores\": 78, \"extracurricular\": true, \"sleep_hours\": 7, \"sample_papers\": 3}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/predict/",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "predict", ""]
+        }
+      }
+    },
+    {
+      "name": "Get All Records",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/records/",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "records", ""]
+        }
+      }
+    },
+    {
+      "name": "Get Record by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/records/1/",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "records", "1", ""]
+        }
+      }
+    },
+    {
+      "name": "Create Record",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"hours_studied\": 7, \"previous_scores\": 85, \"extracurricular\": true, \"sleep_hours\": 8, \"sample_papers\": 4, \"performance_index\": 79.5}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/records/create/",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "records", "create", ""]
+        }
+      }
+    },
+    {
+      "name": "Get Statistics",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/statistics/",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "statistics", ""]
+        }
+      }
+    }
+  ]
+}
+
