@@ -29,6 +29,13 @@ function PredictionForm({ onSuccess }) {
     setError(null);
     setResult(null);
 
+    // CLIENT-SIDE VALIDATION: Check if hours_studied + sleep_hours > 24
+    if (formData.hours_studied + formData.sleep_hours > 24) {
+      setError(`❌ Physics check failed: Study (${formData.hours_studied}h) + Sleep (${formData.sleep_hours}h) = ${formData.hours_studied + formData.sleep_hours}h exceeds 24 hours in a day. A day only has 24 hours!`);
+      setLoading(false);
+      return;
+    }
+
     try {
       const response = await api.predict(formData);
       setResult(response.data);
@@ -119,7 +126,12 @@ function PredictionForm({ onSuccess }) {
             <label htmlFor="extracurricular">Participates in Extracurricular Activities</label>
           </div>
 
-          <button type="submit" disabled={loading} className="submit-btn">
+          <div className="constraint-warning" style={{ color: formData.hours_studied + formData.sleep_hours > 24 ? '#ff6b6b' : '#ffc107', fontWeight: 'bold', marginBottom: '15px' }}>
+            ⏰ Study Hours + Sleep Hours = {formData.hours_studied + formData.sleep_hours}/24 hours
+            {formData.hours_studied + formData.sleep_hours > 24 && ' ❌ EXCEEDS 24 HOURS!'}
+          </div>
+
+          <button type="submit" disabled={loading || (formData.hours_studied + formData.sleep_hours > 24)} className="submit-btn">
             {loading ? '🔄 Predicting...' : '🚀 Make Prediction'}
           </button>
         </form>

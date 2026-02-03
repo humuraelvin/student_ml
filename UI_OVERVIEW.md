@@ -1,4 +1,4 @@
-# 🎓 Student Performance Predictor - Complete UI Guide
+cd /home/humura/Documents/workings/Year\ 3/ML/AI_models/student_ml/frontend && npm start# 🎓 Student Performance Predictor - Complete UI Guide
 
 ## What's New? ✨
 
